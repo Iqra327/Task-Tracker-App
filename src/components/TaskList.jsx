@@ -17,12 +17,20 @@ const TaskList = () => {
       {allTasks?.map((task) => (
         <div key={task.id} className='task-div'>
           <p>{task.text}</p>
-          <Button 
-            className='btn-delete-task' 
-            onClick={() => deleteTask(task.id)}
-          >
-            Delete
-          </Button>
+          <div className='btns-div'>
+            <Button 
+              className='btn-delete-task' 
+              onClick={() => deleteTask(task.id)}
+            >
+              Done
+            </Button>
+            <Button 
+              className='btn-delete-task' 
+              onClick={() => deleteTask(task.id)}
+            >
+              Delete
+            </Button>
+          </div>
         </div>
       ))}
     </div>

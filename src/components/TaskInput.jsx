@@ -11,7 +11,9 @@ const TaskInput = () => {
 
   const addTask = () => {
     if (input.trim() !== '') {
-      setAllTasks([...allTasks, {
+      setAllTasks([
+        ...allTasks,
+        {
         id: uuid(),
         text: input
       }]);
@@ -28,7 +30,9 @@ const TaskInput = () => {
         value={input}
         onChange={(e) => setInput(e.target.value)} 
       />
-      <Button onClick={addTask} className='btn-add-task'>Add Task</Button>
+      <Button onClick={addTask} className='btn-add-task'>
+        Add Task
+      </Button>
     </div>
   )
 }
