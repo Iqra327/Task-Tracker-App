@@ -43,7 +43,6 @@
 .task-div{
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 12px;
   border: 1px solid gray;
   padding: 10px 12px;
