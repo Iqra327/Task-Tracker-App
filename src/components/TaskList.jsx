@@ -3,7 +3,7 @@ import { Tasks } from '../context/Context'
 import Button from './Button';
 
 const TaskList = () => {
-  const {allTasks, setAllTasks} = useContext(Tasks);
+  const {allTasks, setAllTasks, completedTasks, setCompletedTasks} = useContext(Tasks);
   
   const deleteTask = (id) => {
     const updatedTasks =  allTasks.filter((task) => (
@@ -12,15 +12,23 @@ const TaskList = () => {
     setAllTasks(updatedTasks)
   }
 
+  const completeTask = (id) => {
+    const updatedTasks = allTasks.find((task) => task.id === id );
+    setCompletedTasks([...completedTasks, updatedTasks]);
+    setAllTasks(allTasks.filter((task) => (
+      task.id !== id
+   )));
+  }
+
   return (
     <div className='all-tasks-display'>
       {allTasks?.map((task) => (
         <div key={task.id} className='task-div'>
           <p>{task.text}</p>
           <div className='btns-div'>
-            <Button 
-              className='btn-delete-task' 
-              onClick={() => deleteTask(task.id)}
+            <Button
+              className='btn-done-task' 
+              onClick={() => completeTask(task.id)}
             >
               Done
             </Button>
